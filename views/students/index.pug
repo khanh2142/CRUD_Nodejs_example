@@ -1,0 +1,29 @@
+include ../components/header
+
+.container
+    table.table
+      thead
+        tr
+          th(scope='col') STT
+          th(scope='col') Ảnh
+          th(scope='col') Họ tên
+          th(scope='col') Ngày sinh 
+          th(scope='col') Quê quán
+          th(scope='col') Số điện thoại
+          th(scope='col') Khối
+          th(scope='col') Lớp
+
+      tbody
+        each value,index in data
+          tr
+            th(scope='row')=index+1
+            td
+              img(src="/uploads/"+value.image style="width : 64px;height : 64px;")
+            td=value.name
+            td=value.age
+            td=value.address 
+            td=value.phone
+            td=value.grade 
+            td=value.className
+
+

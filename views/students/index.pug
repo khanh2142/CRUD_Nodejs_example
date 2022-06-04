@@ -21,9 +21,9 @@ include ../components/header
           tr
             th(scope='row')=index+1
             td
-              img(src="/uploads/"+value.image style="width : 64px;height : 64px;")
+              .student--image(style='background-image: url(/uploads/' + value.image + ")")
             td=value.name
-            td=value.age
+            td.age=time[index]
             td=value.address 
             td=value.phone
             td=value.grade 
@@ -31,4 +31,4 @@ include ../components/header
             td
               a.btn.btn-warning(href="/student/update/"+value._id) Chỉnh sửa
 
-
+script(src="/statics/scripts/date.js") 

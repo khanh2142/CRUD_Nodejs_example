@@ -3,7 +3,15 @@ const Student = require("../models/studentModel");
 const get = (req, res) => {
   Student.find()
     .then((data) => {
-      res.render("./students/index", { data: data });
+      let time = data.map((item) => {
+        var date = new Date(item.age);
+        let d = date.getDate();
+        let m = date.getMonth() + 1;
+        let y = date.getFullYear();
+
+        return `${d}/${m}/${y}`;
+      });
+      res.render("./students/index", { data: data, time: time });
     })
     .catch(() => {
       res.send("Error");
@@ -50,29 +58,21 @@ const deleteDB = (req, res) => {
 const update = (req, res) => {
   const { id } = req.params;
 
-  const promise1 = Student.findById(id).then((data) => {
-    return data;
+  const promise1 =
+    req.file && Student.findByIdAndUpdate(id, { image: req.file.originalname });
+
+  const promise2 = Student.findByIdAndUpdate(id, {
+    name: req.body.name,
+    address: req.body.address,
+    age: req.body.age,
+    phone: req.body.phone,
+    grade: req.body.grade,
+    className: req.body.className,
   });
 
-  Promise.all([promise1])
-    .then((result) => {
-      if (req.file) {
-        Student.findByIdAndUpdate(id, {
-          image: req.file.originalname,
-        });
-      }
-      Student.findByIdAndUpdate(id, {
-        name: req.body.name,
-        address: req.body.address,
-        age: req.body.age,
-        phone: req.body.phone,
-        grade: req.body.grade,
-        className: req.body.className,
-      });
-    })
-    .then(() => {
-      res.send("updated");
-    });
+  Promise.all([promise1, promise2]).finally(() => {
+    res.redirect("/student");
+  });
 };
 
 const getCreate = (req, res) => {

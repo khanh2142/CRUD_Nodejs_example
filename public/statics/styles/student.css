@@ -26,3 +26,10 @@
 .hide {
   display: none !important;
 }
+
+.student--image {
+  width: 64px;
+  height: 64px;
+  background-position: 50% 50%;
+  background-size: cover;
+}

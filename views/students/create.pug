@@ -1,5 +1,9 @@
 include ../components/header
+
+
 .container 
+    a.btn.btn-primary(href="/student") Quản lý
+
     form(method="post" enctype="multipart/form-data")
         .mb-3
           label.form-label(for='fullname') Họ tên
@@ -20,6 +24,6 @@ include ../components/header
           label.form-label(for='className') Lớp
           input#className.form-control(type='text' name="className" autocomplete="off")
         .mb-3
-            label.form-label(for='formFile') Chọn file
+            label.form-label(for='formFile') Chọn ảnh
             input#formFile.form-control(type='file' name="image" accept="image/*")
         button.btn.btn-primary(type='submit') Submit

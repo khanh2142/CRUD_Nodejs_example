@@ -79,4 +79,12 @@ const getCreate = (req, res) => {
   res.render("./students/create");
 };
 
-module.exports = { get, post, deleteDB, update, getCreate };
+const getUpdate = (req, res) => {
+  Student.findById(req.params.id).then((data) => {
+    var date = new Date(data.age);
+    let time = date.toISOString().slice(0, 10);
+    res.render("./students/update", { data: data, time: time });
+  });
+};
+
+module.exports = { get, post, deleteDB, update, getCreate, getUpdate };

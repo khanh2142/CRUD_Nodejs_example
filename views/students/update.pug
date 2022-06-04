@@ -1,0 +1,38 @@
+include ../components/header
+
+
+.container 
+    a.btn.btn-primary(href="/student") Quản lý
+
+    form(method="post" enctype="multipart/form-data")
+        .mb-3
+          label.form-label(for='fullname') Họ tên
+          input#fullname.form-control(type='text' name="name" autocomplete="off" value=data.name)
+        .mb-3
+          label.form-label(for='age') Ngày sinh
+          input#age.form-control(type='date' name="age" autocomplete="off" value=time)
+        .mb-3
+          label.form-label(for='address') Địa chỉ
+          input#address.form-control(type='text' name="address" autocomplete="off" value=data.address)
+        .mb-3
+          label.form-label(for='phone') Số điện thoại
+          input#phone.form-control(type='text' name="phone" autocomplete="off" value=data.phone)
+        .mb-3
+          label.form-label(for='grade') Khối
+          input#grade.form-control(type='text' name="grade" autocomplete="off" value=data.grade)
+        .mb-3
+          label.form-label(for='className') Lớp
+          input#className.form-control(type='text' name="className" autocomplete="off" value=data.className)
+        .mb-3.input--file.hide
+            label.form-label(for='formFile') Chọn ảnh
+            input#formFile.form-control(type='file' name="image" accept="image/*")
+        .mb-3.image--preview
+            #preview--image.preview(style='background-image: url(/uploads/' + data.image + ")")
+                #preview--close.preview--close 
+                    i.fa-solid.fa-xmark
+
+        button.btn.btn-primary(type='submit') Submit
+
+script(src="/statics/scripts/preview.js") 
+
+include ../components/footer

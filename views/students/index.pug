@@ -1,6 +1,9 @@
 include ../components/header
 
 .container
+
+    a.btn.btn-primary(href="/student/create") Thêm mới
+
     table.table
       thead
         tr
@@ -12,7 +15,7 @@ include ../components/header
           th(scope='col') Số điện thoại
           th(scope='col') Khối
           th(scope='col') Lớp
-
+          th(scope='col') Chức năng
       tbody
         each value,index in data
           tr
@@ -25,5 +28,7 @@ include ../components/header
             td=value.phone
             td=value.grade 
             td=value.className
+            td
+              a.btn.btn-warning(href="/student/update/"+value._id) Chỉnh sửa
 
 

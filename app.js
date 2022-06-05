@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
-const PORT = 8000;
+const dotenv = require("dotenv");
+
+const PORT = process.env.PORT || 8000;
 
 const url =
   "mongodb+srv://khanh2142:khanh2142@clusterbaitap.wdwzkbw.mongodb.net/?retryWrites=true&w=majority";
@@ -15,6 +17,8 @@ mongoose
   .catch(() => {
     console.log("Failed to connect to DB");
   });
+
+dotenv.config();
 
 app.use(require("./routes"));
 

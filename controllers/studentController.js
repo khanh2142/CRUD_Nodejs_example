@@ -1,7 +1,17 @@
 const Student = require("../models/studentModel");
 
 const get = (req, res) => {
-  Student.find()
+  let search;
+
+  if (req.query.search) {
+    search = new RegExp(req.query.search);
+  } else {
+    search = new RegExp(/./);
+  }
+
+  console.log(search);
+
+  Student.find({ name: search })
     .then((data) => {
       let time = data.map((item) => {
         var date = new Date(item.age);

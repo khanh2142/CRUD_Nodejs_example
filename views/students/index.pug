@@ -2,7 +2,16 @@ include ../components/header
 
 .container
 
-    a.btn.btn-primary.container--btn(href="/student/create") Thêm mới
+    .container__button 
+      form.container__search
+        input.search(type="text" name="search")
+        button.btn.btn-info Tìm kiếm
+      .container__button--item 
+        a.btn.btn-primary.container--btn(href="/student/create") Thêm mới
+
+
+    h1.text-center.p-5 Danh sách sinh viên
+
 
     table.table
       thead

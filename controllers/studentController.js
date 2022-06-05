@@ -36,7 +36,7 @@ const post = (req, res) => {
     ? student
         .save()
         .then(() => {
-          res.send("saved");
+          res.redirect("/student");
         })
         .catch(() => {
           res.send("failed to save student");
@@ -48,7 +48,7 @@ const deleteDB = (req, res) => {
   const { id } = req.params;
   Student.findByIdAndDelete(id)
     .then(() => {
-      res.send("deleted");
+      res.redirect("back");
     })
     .catch(() => {
       res.send("delete failed");

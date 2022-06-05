@@ -33,3 +33,20 @@
   background-position: 50% 50%;
   background-size: cover;
 }
+
+.container--btn {
+  margin: 10px;
+}
+
+.btn--update {
+  margin-right: 10px;
+}
+
+#previewImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}

@@ -2,28 +2,32 @@ include ../components/header
 
 
 .container 
-    a.btn.btn-primary(href="/student") Quản lý
+    a.btn.btn-primary.container--btn(href="/student") Quản lý
 
     form(method="post" enctype="multipart/form-data")
         .mb-3
           label.form-label(for='fullname') Họ tên
-          input#fullname.form-control(type='text' name="name" autocomplete="off")
+          input#fullname.form-control(type='text' name="name" autocomplete="off" required)
         .mb-3
           label.form-label(for='age') Ngày sinh
-          input#age.form-control(type='date' name="age" autocomplete="off" )
+          input#age.form-control(type='date' name="age" autocomplete="off" required)
         .mb-3
           label.form-label(for='address') Địa chỉ
-          input#address.form-control(type='text' name="address" autocomplete="off")
+          input#address.form-control(type='text' name="address" autocomplete="off" required)
         .mb-3
           label.form-label(for='phone') Số điện thoại
-          input#phone.form-control(type='text' name="phone" autocomplete="off")
+          input#phone.form-control(type='text' name="phone" autocomplete="off" required)
         .mb-3
           label.form-label(for='grade') Khối
-          input#grade.form-control(type='text' name="grade" autocomplete="off")
+          input#grade.form-control(type='text' name="grade" autocomplete="off" required)
         .mb-3
           label.form-label(for='className') Lớp
-          input#className.form-control(type='text' name="className" autocomplete="off")
+          input#className.form-control(type='text' name="className" autocomplete="off" required)
         .mb-3
             label.form-label(for='formFile') Chọn ảnh
-            input#formFile.form-control(type='file' name="image" accept="image/*")
+            input#formFile.form-control(type='file' name="image" accept="image/*" required)
+        .mb-3 
+          #previewImage
         button.btn.btn-primary(type='submit') Submit
+
+script(src="/statics/scripts/previewImage.js") 

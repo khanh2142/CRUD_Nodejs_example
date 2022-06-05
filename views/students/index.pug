@@ -2,7 +2,7 @@ include ../components/header
 
 .container
 
-    a.btn.btn-primary(href="/student/create") Thêm mới
+    a.btn.btn-primary.container--btn(href="/student/create") Thêm mới
 
     table.table
       thead
@@ -29,6 +29,10 @@ include ../components/header
             td=value.grade 
             td=value.className
             td
-              a.btn.btn-warning(href="/student/update/"+value._id) Chỉnh sửa
+              .btn.btn-warning.btn--update(data-id=value._id) Chỉnh sửa
+              .btn.btn-danger.btn--delete(data-id=value._id) Xóa
+
 
 script(src="/statics/scripts/date.js") 
+script(src="/statics/scripts/delete.js") 
+
